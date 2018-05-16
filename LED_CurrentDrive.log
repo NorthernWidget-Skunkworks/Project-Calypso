@@ -1,0 +1,21 @@
+Circuit: * C:\Users\You\Documents\Project-Calypso\LED_CurrentDrive.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Mon May 14 13:05:40 2018
+Total elapsed time: 0.137 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2094
+traniter = 2082
+tranpoints = 1042
+accept = 1042
+rejected = 0
+matrix size = 19
+fillins = 24
+solver = Normal
+Matrix Compiler1: 2.16 KB object code size  0.6/0.3/[0.2]
+Matrix Compiler2: off  [0.2]/0.2/0.2
+
