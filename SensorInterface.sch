@@ -7916,7 +7916,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </class>
 </classes>
 <parts>
-<part name="FRAME1" library="bschulz" deviceset="FRAME_A_L" device=""/>
+<part name="FRAME1" library="bschulz" deviceset="FRAME_A_L" device="">
+<attribute name="DESIGNER" value="Bobby Schulz"/>
+<attribute name="PROJECT" value="Calypso"/>
+<attribute name="REV" value="0.1"/>
+</part>
 <part name="U1" library="bschulz" deviceset="SN74HC590A" device="D"/>
 <part name="U2" library="bschulz" deviceset="CD74HCT688" device="DW"/>
 <part name="U3" library="bschulz" deviceset="SN74HC164" device="D"/>
@@ -7941,7 +7945,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C4" library="bschulz_passives" deviceset="C-EU" device="C0603" value="0.1uF"/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
-<part name="FRAME2" library="bschulz" deviceset="FRAME_A_L" device=""/>
+<part name="FRAME2" library="bschulz" deviceset="FRAME_A_L" device="">
+<attribute name="DESIGNER" value="Bobby Schulz"/>
+<attribute name="PROJECT" value="Calypso"/>
+<attribute name="REV" value="0.1"/>
+</part>
 <part name="Q2" library="bschulz" deviceset="MOSFET-NCH" device="-2N7002PW" value="2N7002"/>
 <part name="R1" library="bschulz_passives" deviceset="R-EU_" device="R0603" value="10"/>
 <part name="R2" library="bschulz_passives" deviceset="R-EU_" device="R0603" value="220"/>
@@ -7989,7 +7997,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="223.52" y="111.76" size="1.778" layer="91" ratio="15">Select High or Low Address for Slave address</text>
 </plain>
 <instances>
-<instance part="FRAME1" gate="G$1" x="0" y="0"/>
+<instance part="FRAME1" gate="G$1" x="0" y="0">
+<attribute name="PROJECT" x="0" y="0" size="1.778" layer="96" ratio="15" display="off"/>
+<attribute name="DESIGNER" x="0" y="0" size="1.778" layer="96" ratio="15" display="off"/>
+<attribute name="REV" x="0" y="0" size="1.778" layer="96" ratio="15" display="off"/>
+</instance>
 <instance part="FRAME1" gate="G$2" x="172.72" y="0"/>
 <instance part="U1" gate="G$1" x="53.34" y="177.8"/>
 <instance part="U2" gate="G$1" x="99.06" y="182.88"/>
@@ -8626,7 +8638,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="33.02" y="187.96" size="1.778" layer="91" ratio="15">Divide to change dynamic range</text>
 </plain>
 <instances>
-<instance part="FRAME2" gate="G$1" x="0" y="0"/>
+<instance part="FRAME2" gate="G$1" x="0" y="0">
+<attribute name="PROJECT" x="0" y="0" size="1.778" layer="96" ratio="15" display="off"/>
+<attribute name="DESIGNER" x="0" y="0" size="1.778" layer="96" ratio="15" display="off"/>
+<attribute name="REV" x="0" y="0" size="1.778" layer="96" ratio="15" display="off"/>
+</instance>
 <instance part="FRAME2" gate="G$2" x="172.72" y="0"/>
 <instance part="Q2" gate="NMOS" x="114.3" y="180.34"/>
 <instance part="R1" gate="G$1" x="116.84" y="165.1" rot="R90"/>
