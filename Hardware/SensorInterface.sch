@@ -2491,6 +2491,41 @@ Input voltage rage of 1.8-5.5v</description>
 </technology>
 </technologies>
 </device>
+<device name="SOIC" package="SO14">
+<connects>
+<connect gate="G$1" pin="GND" pad="14"/>
+<connect gate="G$1" pin="PA0" pad="13"/>
+<connect gate="G$1" pin="PA1" pad="12"/>
+<connect gate="G$1" pin="PA2" pad="11"/>
+<connect gate="G$1" pin="PA3" pad="10"/>
+<connect gate="G$1" pin="PA4" pad="9"/>
+<connect gate="G$1" pin="PA5" pad="8"/>
+<connect gate="G$1" pin="PA6" pad="7"/>
+<connect gate="G$1" pin="PA7" pad="6"/>
+<connect gate="G$1" pin="PB0" pad="2"/>
+<connect gate="G$1" pin="PB1" pad="3"/>
+<connect gate="G$1" pin="PB2" pad="5"/>
+<connect gate="G$1" pin="PB3" pad="4"/>
+<connect gate="G$1" pin="VCC" pad="1"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DIGIKEY" value="" constant="no"/>
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="" constant="no"/>
+</technology>
+<technology name="441">
+<attribute name="DIGIKEY" value="ATTINY441-SSURCT-ND" constant="no"/>
+<attribute name="MF" value="Atmel" constant="no"/>
+<attribute name="MPN" value="ATTINY441-SSUR" constant="no"/>
+</technology>
+<technology name="841">
+<attribute name="DIGIKEY" value="ATTINY841-SSURCT-ND" constant="no"/>
+<attribute name="MF" value="Atmel" constant="no"/>
+<attribute name="MPN" value="ATTINY841-SSUR" constant="no"/>
+</technology>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="AVRISP" prefix="ISP">
@@ -7939,7 +7974,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="Q1" library="bschulz" deviceset="MOSFET-NCH" device="-DMG3404L" value="DMG3404"/>
 <part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="U$3" library="bschulz" deviceset="ATTINY441/841" device="" technology="841"/>
+<part name="U$3" library="bschulz" deviceset="ATTINY441/841" device="SOIC" technology="841" value="ATTINY441/841841SOIC"/>
 <part name="ISP1" library="bschulz" deviceset="AVRISP" device="-6"/>
 <part name="C3" library="bschulz_passives" deviceset="C-EU" device="C0603" value="0.1uF"/>
 <part name="C4" library="bschulz_passives" deviceset="C-EU" device="C0603" value="0.1uF"/>
