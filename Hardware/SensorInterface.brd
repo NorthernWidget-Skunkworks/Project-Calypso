@@ -162,7 +162,7 @@
 <wire x1="69" y1="0" x2="69" y2="20" width="0" layer="20"/>
 <wire x1="69" y1="20" x2="0" y2="20" width="0" layer="20"/>
 <wire x1="0" y1="20" x2="0" y2="0" width="0" layer="20"/>
-<text x="67.564" y="2.032" size="1.27" layer="52" rot="MR0">Project Calypso v0.0.0
+<text x="68.072" y="8.128" size="0.8128" layer="52" rot="MR0">Project Calypso v0.0.0
 2018.12.23
 Bobby Schulz (schematic)
 Andy Wickert (layout)
@@ -171,8 +171,22 @@ UMN senior design team (basis design)
 Design: Northern Widget LLC
 in collaboration with
 The University of Minnesota</text>
-<text x="25.4" y="1.016" size="1.27" layer="52" rot="MR0">Turbidity sensor:
+<text x="68.072" y="0.8128" size="0.8128" layer="52" rot="MR0">Turbidity sensor:
 Light and detector control board</text>
+<text x="7.5184" y="13.4112" size="1.016" layer="52" rot="MR0">SDA</text>
+<text x="7.5184" y="10.7696" size="1.016" layer="52" rot="MR0">SCL</text>
+<text x="6.5024" y="8.128" size="1.016" layer="52" rot="MR0">V+</text>
+<text x="6.5024" y="5.6896" size="1.016" layer="52" rot="MR0">V-</text>
+<text x="8.5344" y="4.6736" size="1.016" layer="52" rot="MR90">V+</text>
+<text x="10.9728" y="13.8176" size="1.016" layer="52" rot="MR90">V+</text>
+<text x="10.9728" y="4.6736" size="1.016" layer="52" rot="MR90">LED1-</text>
+<text x="9.5504" y="15.4432" size="1.016" layer="52" rot="MR270">LED2-</text>
+<text x="38.2016" y="15.6464" size="1.016" layer="52" rot="MR270">3V3</text>
+<text x="32.1056" y="4.2672" size="1.016" layer="52" rot="MR90">3V3</text>
+<text x="33.1216" y="15.6464" size="1.016" layer="52" rot="MR270">GND</text>
+<text x="37.1856" y="4.2672" size="1.016" layer="52" rot="MR90">GND</text>
+<text x="35.7632" y="15.6464" size="1.016" layer="52" rot="MR270">Fin1</text>
+<text x="34.7472" y="4.2672" size="1.016" layer="52" rot="MR90">Fin0</text>
 </plain>
 <libraries>
 <library name="bschulz_passives">
