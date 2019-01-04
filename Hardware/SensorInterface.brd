@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.1.3">
+<eagle version="9.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -169,7 +169,7 @@
 <text x="68.072" y="8.128" size="0.8128" layer="52" font="vector" ratio="15" rot="MR0">Project Calypso v0.0.0
 2018.12.23 and 2019.01.01
 Bobby Schulz (schematic)
-Andy Wickert (layout)
+Andy Wickert and Bobby Schulz (layout)
 UMN senior design team (basis design)
 
 Design: Northern Widget LLC
@@ -1301,7 +1301,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="MF" value="TI" x="43.688" y="13.3096" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="SN74LVC1G74DCUR" x="43.688" y="13.3096" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="41.688" y="14.5596" size="1.27" layer="25"/>
-<attribute name="VALUE" x="40.672" y="10.8096" size="1.27" layer="27"/>
+<attribute name="VALUE" x="41.688" y="10.8096" size="1.27" layer="27"/>
 </element>
 <element name="U8" library="bschulz" package="DCU_(R-PDSO-G8)@1" value="SN74LVC1G74DCU" x="57.5056" y="16.9672" rot="R90">
 <attribute name="DIGIKEY" value="296-25554-1-ND" x="57.5056" y="16.9672" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1337,8 +1337,8 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="DIGIKEY" value="" x="33.2232" y="12.7" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MF" value="Yageo" x="33.2232" y="12.7" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="" x="33.2232" y="12.7" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="33.2232" y="11.303" size="0.6096" layer="25" font="vector" ratio="15" rot="R180" align="center"/>
-<attribute name="VALUE" x="33.2232" y="14.097" size="0.6096" layer="27" font="vector" ratio="15" rot="R180" align="center"/>
+<attribute name="NAME" x="29.1592" y="15.367" size="0.6096" layer="25" font="vector" ratio="15" rot="R180" align="center"/>
+<attribute name="VALUE" x="29.1592" y="18.161" size="0.6096" layer="27" font="vector" ratio="15" rot="R180" align="center"/>
 <attribute name="VALUE_PART" value="" x="33.2232" y="12.7" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R12" library="bschulz_passives" package="R0603" value="10k" x="29.1592" y="18.796" rot="R180">
