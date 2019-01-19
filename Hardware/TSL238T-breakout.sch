@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.2">
+<eagle version="9.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -501,47 +501,53 @@ http://creativecommons.org/licenses/by-sa/4.0/</text>
 <part name="H1" library="bschulz" deviceset="MOUNTING_HOLE" device="2_NP"/>
 <part name="H2" library="bschulz" deviceset="MOUNTING_HOLE" device="2_NP"/>
 <part name="J1" library="bschulz" deviceset="CONN_4" device="2.54_NOSILK"/>
+<part name="H3" library="bschulz" deviceset="MOUNTING_HOLE" device="2_NP"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 </plain>
 <instances>
-<instance part="FRAME1" gate="G$1" x="0" y="0" smashed="yes"/>
-<instance part="FRAME1" gate="G$2" x="172.72" y="0" smashed="yes">
+<instance part="FRAME1" gate="G$1" x="0" y="0"/>
+<instance part="FRAME1" gate="G$2" x="172.72" y="0">
 <attribute name="LAST_DATE_TIME" x="185.42" y="1.27" size="2.54" layer="94"/>
 <attribute name="SHEET" x="259.08" y="1.27" size="2.54" layer="94"/>
 <attribute name="DRAWING_NAME" x="190.5" y="19.05" size="2.54" layer="94"/>
 </instance>
-<instance part="U$1" gate="G$1" x="152.4" y="114.3" smashed="yes">
+<instance part="U$1" gate="G$1" x="152.4" y="114.3">
 <attribute name="NAME" x="142.24" y="121.92" size="1.27" layer="95"/>
 </instance>
-<instance part="H1" gate="G$1" x="137.16" y="88.9" smashed="yes">
+<instance part="H1" gate="G$1" x="137.16" y="88.9">
 <attribute name="NAME" x="139.192" y="89.4842" size="1.778" layer="95"/>
 <attribute name="VALUE" x="139.192" y="86.4362" size="1.778" layer="96"/>
 </instance>
-<instance part="H2" gate="G$1" x="147.32" y="88.9" smashed="yes">
+<instance part="H2" gate="G$1" x="147.32" y="88.9">
 <attribute name="NAME" x="149.352" y="89.4842" size="1.778" layer="95"/>
 <attribute name="VALUE" x="149.352" y="86.4362" size="1.778" layer="96"/>
 </instance>
-<instance part="J1" gate="G$1" x="111.76" y="114.3" smashed="yes">
+<instance part="J1" gate="G$1" x="111.76" y="114.3">
 <attribute name="VALUE" x="96.52" y="106.934" size="1.778" layer="96" font="vector"/>
 <attribute name="NAME" x="106.68" y="122.428" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="H3" gate="G$1" x="157.48" y="88.9">
+<attribute name="NAME" x="159.512" y="89.4842" size="1.778" layer="95"/>
+<attribute name="VALUE" x="159.512" y="86.4362" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="N$1" class="0">
+<net name="GND" class="0">
 <segment>
 <wire x1="137.16" y1="111.76" x2="127" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="127" y1="111.76" x2="127" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="127" y1="114.3" x2="116.84" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="GND"/>
 <pinref part="J1" gate="G$1" pin="2"/>
+<label x="119.38" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="VDD" class="0">
 <segment>
 <wire x1="167.64" y1="111.76" x2="172.72" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="111.76" x2="172.72" y2="104.14" width="0.1524" layer="91"/>
@@ -550,16 +556,18 @@ http://creativecommons.org/licenses/by-sa/4.0/</text>
 <wire x1="124.46" y1="111.76" x2="116.84" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="VDD"/>
 <pinref part="J1" gate="G$1" pin="1"/>
+<label x="124.46" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="OE" class="0">
 <segment>
 <wire x1="137.16" y1="116.84" x2="116.84" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="OE_INV"/>
 <pinref part="J1" gate="G$1" pin="3"/>
+<label x="119.38" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="OUT" class="0">
 <segment>
 <wire x1="167.64" y1="116.84" x2="172.72" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="116.84" x2="172.72" y2="124.46" width="0.1524" layer="91"/>
@@ -568,6 +576,7 @@ http://creativecommons.org/licenses/by-sa/4.0/</text>
 <wire x1="129.54" y1="119.38" x2="116.84" y2="119.38" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="OUT"/>
 <pinref part="J1" gate="G$1" pin="4"/>
+<label x="134.62" y="124.46" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

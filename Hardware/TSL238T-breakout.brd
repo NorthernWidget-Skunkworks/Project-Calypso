@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.2">
+<eagle version="9.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -152,6 +152,10 @@
 <wire x1="2" y1="15" x2="0" y2="13" width="0" layer="20" curve="90"/>
 <wire x1="0" y1="13" x2="0" y2="2" width="0" layer="20"/>
 <wire x1="0" y1="2" x2="2" y2="0" width="0" layer="20" curve="90"/>
+<text x="1.8" y="2.5" size="0.8128" layer="52" rot="MR90">VDD</text>
+<text x="9.3" y="2.5" size="0.8128" layer="52" rot="MR90">OUT</text>
+<text x="4.3" y="2.5" size="0.8128" layer="52" rot="MR90">GND</text>
+<text x="6.8" y="2.5" size="0.8128" layer="52" rot="MR90">OE</text>
 </plain>
 <libraries>
 <library name="bschulz">
@@ -385,22 +389,23 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 </pass>
 </autorouter>
 <elements>
-<element name="U$1" library="bschulz" package="TSL238T" value="TSL238T" x="7" y="7" smashed="yes"/>
-<element name="H1" library="bschulz" package="2_56" value="" x="2.3" y="12.7" smashed="yes"/>
-<element name="H2" library="bschulz" package="2_56" value="" x="12.7" y="2.3" smashed="yes"/>
-<element name="J1" library="bschulz" package="1X04_NOSILK" value="CONN_42.54_NOSILK" x="6" y="1.2" smashed="yes">
+<element name="U$1" library="bschulz" package="TSL238T" value="TSL238T" x="7" y="7"/>
+<element name="H1" library="bschulz" package="2_56" value="" x="2.3" y="12.7"/>
+<element name="H2" library="bschulz" package="2_56" value="" x="12.7" y="2.3"/>
+<element name="J1" library="bschulz" package="1X04_NOSILK" value="CONN_42.54_NOSILK" x="6" y="1.2">
 <attribute name="NAME" x="4.73" y="2.597" size="0.6096" layer="25" font="vector" ratio="20"/>
 <attribute name="VALUE" x="4.73" y="-0.832" size="0.6096" layer="27" font="vector" ratio="20"/>
 </element>
+<element name="H3" library="bschulz" package="2_56" value="" x="12.7" y="12.7"/>
 </elements>
 <signals>
-<signal name="N$1">
+<signal name="GND">
 <contactref element="U$1" pad="GND"/>
 <contactref element="J1" pad="2"/>
 <wire x1="5.1" y1="6.25" x2="5.1" y2="1.57" width="0.508" layer="1"/>
 <wire x1="5.1" y1="1.57" x2="4.73" y2="1.2" width="0.508" layer="1"/>
 </signal>
-<signal name="N$2">
+<signal name="VDD">
 <contactref element="U$1" pad="VDD"/>
 <contactref element="J1" pad="1"/>
 <wire x1="6.5064" y1="8.3683375" x2="6.2683375" y2="8.6064" width="0.508" layer="1"/>
@@ -412,7 +417,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <wire x1="3.6936" y1="2.7036" x2="2.19" y2="1.2" width="0.508" layer="1"/>
 <wire x1="3.6936" y1="8.3683375" x2="3.6936" y2="2.7036" width="0.508" layer="1"/>
 </signal>
-<signal name="N$3">
+<signal name="OE">
 <contactref element="U$1" pad="OE_INV"/>
 <contactref element="J1" pad="3"/>
 <wire x1="5.1" y1="7.75" x2="5.7436" y2="7.1064" width="0.508" layer="1"/>
@@ -421,7 +426,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <wire x1="7" y1="1.47" x2="7.27" y2="1.2" width="0.508" layer="1"/>
 <wire x1="7" y1="6.3747375" x2="7" y2="1.47" width="0.508" layer="1"/>
 </signal>
-<signal name="N$4">
+<signal name="OUT">
 <contactref element="U$1" pad="OUT"/>
 <contactref element="J1" pad="4"/>
 <wire x1="8.9" y1="7.75" x2="9.5436" y2="7.1064" width="0.508" layer="1"/>
