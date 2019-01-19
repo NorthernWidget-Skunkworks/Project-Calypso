@@ -394,7 +394,6 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <element name="H2" library="bschulz" package="2_56" value="" x="12.7" y="2.3"/>
 <element name="J1" library="bschulz" package="1X04_NOSILK" value="CONN_42.54_NOSILK" x="5.5" y="1.6">
 <attribute name="NAME" x="4.23" y="2.997" size="0.6096" layer="25" font="vector" ratio="20"/>
-<attribute name="VALUE" x="4.23" y="-0.432" size="0.6096" layer="27" font="vector" ratio="20"/>
 </element>
 <element name="H3" library="bschulz" package="2_56" value="" x="12.7" y="12.7"/>
 </elements>
