@@ -7,6 +7,14 @@ SlowSoftWire Wire = SlowSoftWire(2, 3);
 
 #define LED1 0  //Define values of LEDs for side indication
 #define LED2 1
+
+#define URES 9 //uReset on D9
+#define LED1_CTRL 10 //LED 1 control pin on D10
+#define LED2_CTRL 10 //LED 2 control pin on D10 (Tied together for demo!!!!!!)
+#define DATA 5 //Data line to counter on D5
+#define CLK 0 //Clock line to counter of D0
+#define CLEAR 7 //Clear line to counter on D7
+
 // #define DAC_1_ADR 0x63  //Address for DAC that controls LED1 current
 // #define DAC_2_ADR 0x62  //Address for DAC that controls LED2 current
 uint8_t DAC_Adr[2] = {0x63, 0x62}; //Address for LED1 DAC, LED2 DAC
@@ -21,22 +29,48 @@ void setup() {
   pinMode(10, OUTPUT);
   digitalWrite(9, HIGH);
   digitalWrite(10, HIGH); //Turn on LED switches 
+
+  pinMode(LED1_CTRL, OUTPUT);
+  pinMode(DATA, OUTPUT);
+  pinMode(CLK, OUTPUT);
+  pinMode(CLEAR, OUTPUT);
+  pinMode(URES, OUTPUT);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  for(int i = 0; i < 4096; i += 10) {
-  	SetVoltageRaw(i, LED1);
-  	SetVoltageRaw(4095 - i, LED2);
-  }
-  for(int i = 4095; i > 0; i-= 10) {
-  	SetVoltageRaw(i, LED1);
-  	SetVoltageRaw(4095 - i, LED2);
-  }
+  // for(int i = 0; i < 4096; i += 10) {
+  // 	SetVoltageRaw(i, LED1);
+  // 	SetVoltageRaw(4095 - i, LED2);
+  // }
+  // for(int i = 4095; i > 0; i-= 10) {
+  // 	SetVoltageRaw(i, LED1);
+  // 	SetVoltageRaw(4095 - i, LED2);
+  // }
 
-  SetVoltageRaw(0, LED1);
-  SetVoltageRaw(0, LED2);
-  delay(1000);
+  // SetVoltageRaw(0, LED1);
+  // SetVoltageRaw(0, LED2);
+  // delay(1000);
+  SetCount(1);
+  delay(10);
+  ClearCount();
+  delay(10);
+  SetCount(2);
+  delay(10);
+  ClearCount();
+  delay(10);
+}
+
+void LED_Demo()  //Test function only!
+{
+	for(int i = 0; i < 4096; i += 10) {
+		SetVoltageRaw(i, LED1);
+		SetVoltageRaw(4095 - i, LED2);
+	}
+	for(int i = 4095; i > 0; i-= 10) {
+		SetVoltageRaw(i, LED1);
+		SetVoltageRaw(4095 - i, LED2);
+	}
 }
 
 //Current given in uA
@@ -64,3 +98,36 @@ int SetVoltageRaw(uint16_t Val, bool Side)
 	Wire.write((Val % 16) << 4);            // Lower data bits          (D3.D2.D1.D0.x.x.x.x)
 	Wire.endTransmission();
 }
+
+void SetCount(uint8_t Val)
+{
+	bool Dummy = false; 
+	DDRB = 0x01; //Set pin PB0 as output  //DEBUG!
+	DDRA = 0x28; //Set pin PA5 and pin PA3 as output  //DEBUG!
+	PORTA = 0x08; //Turn Clear Off
+	for(int i = 7; i >= 0; i--) {
+		//FAST MODE
+		// PORTB = 0x00; //Clear bit, drive clock low  //DEBUG!
+		// asm("nop \n"); //pause for one clock cycle
+		// // PORTA = (Dummy << 5);
+		// // Dummy = !Dummy;
+		// PORTA = PORTA | ((Val >> i) & 0x01 ) << 0x05;  //DEBUG!
+		// asm("nop \n"); //pause for one clock cycle
+		// PORTB = 0x01; //Set bit, drive clock high  //DEBUG!
+		// asm("nop \n"); //pause for one clock cycle
+
+
+		digitalWrite(CLK, LOW); //Set clock low
+		digitalWrite(DATA, (Val >> i) & 0x01); //Write LSB to DATA pin
+		digitalWrite(CLK, HIGH); //Clock values in on rising edge
+	}
+}
+
+void ClearCount()
+{
+	digitalWrite(CLEAR, LOW);
+	delayMicroseconds(1);
+	// delay(1); //Wait for clear to take place
+	digitalWrite(CLEAR, HIGH); //Return to nominal value
+}
+
