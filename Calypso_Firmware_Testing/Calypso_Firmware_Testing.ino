@@ -14,6 +14,7 @@ SlowSoftWire Wire = SlowSoftWire(2, 3);
 #define DATA 5 //Data line to counter on D5
 #define CLK 0 //Clock line to counter of D0
 #define CLEAR 7 //Clear line to counter on D7
+#define DONE 1 //Int line to comparator on D1
 
 // #define DAC_1_ADR 0x63  //Address for DAC that controls LED1 current
 // #define DAC_2_ADR 0x62  //Address for DAC that controls LED2 current
@@ -25,9 +26,9 @@ uint8_t Div = 2; //Division factor
 void setup() {
   // put your setup code here, to run once:
   Wire.begin();
-  pinMode(9, OUTPUT);
+  // pinMode(9, OUTPUT);
   pinMode(10, OUTPUT);
-  digitalWrite(9, HIGH);
+  // digitalWrite(9, HIGH);
   digitalWrite(10, HIGH); //Turn on LED switches 
 
   pinMode(LED1_CTRL, OUTPUT);
@@ -35,6 +36,7 @@ void setup() {
   pinMode(CLK, OUTPUT);
   pinMode(CLEAR, OUTPUT);
   pinMode(URES, OUTPUT);
+  pinMode(DONE, INPUT);
 }
 
 void loop() {
@@ -51,14 +53,21 @@ void loop() {
   // SetVoltageRaw(0, LED1);
   // SetVoltageRaw(0, LED2);
   // delay(1000);
-  SetCount(1);
-  delay(10);
+
   ClearCount();
+  SetCount(3);
+  digitalWrite(URES, HIGH);
   delay(10);
-  SetCount(2);
-  delay(10);
-  ClearCount();
-  delay(10);
+  digitalWrite(URES, LOW);
+  delay(100); //DEBUG!
+  // while(1);
+  // delay(10);
+  // ClearCount();
+  // delay(10);
+  // SetCount(2);
+  // delay(10);
+  // ClearCount();
+  // delay(10);
 }
 
 void LED_Demo()  //Test function only!
@@ -102,24 +111,27 @@ int SetVoltageRaw(uint16_t Val, bool Side)
 void SetCount(uint8_t Val)
 {
 	bool Dummy = false; 
-	DDRB = 0x01; //Set pin PB0 as output  //DEBUG!
-	DDRA = 0x28; //Set pin PA5 and pin PA3 as output  //DEBUG!
-	PORTA = 0x08; //Turn Clear Off
+	DDRB = DDRB | 0x01; //Set pin PB0 as output  //DEBUG!
+	DDRA = DDRA | 0x28; //Set pin PA5 and pin PA3 as output  //DEBUG!
+	PORTA = PORTA | 0x08; //Turn Clear Off
+	PORTA = PORTA & 0xDF; //Clear PA5 
+	// Val = Val << 0x05; //Offset to allign with PORTA
 	for(int i = 7; i >= 0; i--) {
 		//FAST MODE
-		// PORTB = 0x00; //Clear bit, drive clock low  //DEBUG!
-		// asm("nop \n"); //pause for one clock cycle
-		// // PORTA = (Dummy << 5);
-		// // Dummy = !Dummy;
+		PORTB = PORTB & 0xFE; //Clear bit, drive clock low  //DEBUG!
+		asm("nop \n"); //pause for one clock cycle
 		// PORTA = PORTA | ((Val >> i) & 0x01 ) << 0x05;  //DEBUG!
-		// asm("nop \n"); //pause for one clock cycle
-		// PORTB = 0x01; //Set bit, drive clock high  //DEBUG!
-		// asm("nop \n"); //pause for one clock cycle
+		PORTA = PORTA | (Val >> 0x02) & 0x20;  //DEBUG!
+		// PORTA = PORTA | (Val  << (0x05 + i)) & 0x20;  //DEBUG!
+		asm("nop \n"); //pause for one clock cycle
+		PORTB = PORTB | 0x01; //Set bit, drive clock high  //DEBUG!
+		asm("nop \n"); //pause for one clock cycle
+		Val = Val << 0x01; //Shift to new val
 
 
-		digitalWrite(CLK, LOW); //Set clock low
-		digitalWrite(DATA, (Val >> i) & 0x01); //Write LSB to DATA pin
-		digitalWrite(CLK, HIGH); //Clock values in on rising edge
+		// digitalWrite(CLK, LOW); //Set clock low
+		// digitalWrite(DATA, (Val >> i) & 0x01); //Write LSB to DATA pin
+		// digitalWrite(CLK, HIGH); //Clock values in on rising edge
 	}
 }
 
@@ -130,4 +142,3 @@ void ClearCount()
 	// delay(1); //Wait for clear to take place
 	digitalWrite(CLEAR, HIGH); //Return to nominal value
 }
-
