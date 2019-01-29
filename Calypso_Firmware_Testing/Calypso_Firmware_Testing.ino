@@ -55,10 +55,10 @@ void loop() {
   // delay(1000);
 
   ClearCount();
-  SetCount(3);
-  digitalWrite(URES, HIGH);
-  delay(10);
+  SetCount(5);
   digitalWrite(URES, LOW);
+  delayMicroseconds(300);
+  digitalWrite(URES, HIGH);
   delay(100); //DEBUG!
   // while(1);
   // delay(10);
@@ -120,18 +120,19 @@ void SetCount(uint8_t Val)
 		//FAST MODE
 		PORTB = PORTB & 0xFE; //Clear bit, drive clock low  //DEBUG!
 		asm("nop \n"); //pause for one clock cycle
-		// PORTA = PORTA | ((Val >> i) & 0x01 ) << 0x05;  //DEBUG!
+//		 PORTA = PORTA | ((Val >> i) & 0x01 ) << 0x05;  //DEBUG!
+    PORTA = PORTA & 0xDF;
 		PORTA = PORTA | (Val >> 0x02) & 0x20;  //DEBUG!
-		// PORTA = PORTA | (Val  << (0x05 + i)) & 0x20;  //DEBUG!
+		//// PORTA = PORTA | (Val  << (0x05 + i)) & 0x20;  //DEBUG!
 		asm("nop \n"); //pause for one clock cycle
 		PORTB = PORTB | 0x01; //Set bit, drive clock high  //DEBUG!
 		asm("nop \n"); //pause for one clock cycle
 		Val = Val << 0x01; //Shift to new val
 
 
-		// digitalWrite(CLK, LOW); //Set clock low
-		// digitalWrite(DATA, (Val >> i) & 0x01); //Write LSB to DATA pin
-		// digitalWrite(CLK, HIGH); //Clock values in on rising edge
+//		 digitalWrite(CLK, LOW); //Set clock low
+//		 digitalWrite(DATA, (Val >> i) & 0x01); //Write LSB to DATA pin
+//		 digitalWrite(CLK, HIGH); //Clock values in on rising edge
 	}
 }
 
