@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.0">
+<eagle version="9.1.3">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9,6 +9,20 @@
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
@@ -182,30 +196,23 @@
 <circle x="0" y="0" radius="2.125" width="0.127" layer="21"/>
 <pad name="P$1" x="0" y="0" drill="2.5"/>
 </package>
-<package name="1206-LED">
+<package name="LED_1206">
 <description>&lt;p&gt;&lt;b&gt;3216 (1206) package for an LED &lt;/b&gt;&lt;/p&gt;
 &lt;p&gt;Arrow towards the cathode.&lt;/p&gt;
 &lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<wire x1="-2.4" y1="1.1" x2="2.4" y2="1.1" width="0.0508" layer="39"/>
-<wire x1="2.4" y1="-1.1" x2="-2.4" y2="-1.1" width="0.0508" layer="39"/>
-<wire x1="-2.4" y1="-1.1" x2="-2.4" y2="1.1" width="0.0508" layer="39"/>
-<wire x1="2.4" y1="1.1" x2="2.4" y2="-1.1" width="0.0508" layer="39"/>
-<wire x1="-0.965" y1="0.787" x2="0.965" y2="0.787" width="0.127" layer="51"/>
-<wire x1="-0.965" y1="-0.787" x2="0.965" y2="-0.787" width="0.127" layer="51"/>
-<smd name="ANODE" x="-1.4" y="0" dx="1.6" dy="1.8" layer="1"/>
-<smd name="CATHODE" x="1.4" y="0" dx="1.6" dy="1.8" layer="1"/>
-<text x="0" y="1.143" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-1.143" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
-<rectangle x1="-1.7018" y1="-0.8509" x2="-0.9517" y2="0.8491" layer="51"/>
-<rectangle x1="0.9517" y1="-0.8491" x2="1.7018" y2="0.8509" layer="51"/>
+<wire x1="0.965" y1="-0.787" x2="-0.965" y2="-0.787" width="0.127" layer="51"/>
+<wire x1="0.965" y1="0.787" x2="-0.965" y2="0.787" width="0.127" layer="51"/>
+<smd name="ANODE" x="1.4" y="0" dx="1.4" dy="1.6" layer="1" rot="R180"/>
+<smd name="CATHODE" x="-1.4" y="0" dx="1.4" dy="1.5" layer="1" rot="R180"/>
+<text x="0" y="1.27" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-1.27" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
+<rectangle x1="0.9517" y1="-0.8491" x2="1.7018" y2="0.8509" layer="51" rot="R180"/>
+<rectangle x1="-1.7018" y1="-0.8509" x2="-0.9517" y2="0.8491" layer="51" rot="R180"/>
 <rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
-<wire x1="0.508" y1="0.762" x2="0.508" y2="-0.762" width="0.127" layer="21"/>
-<polygon width="0.127" layer="21">
-<vertex x="-0.4064" y="0.6096"/>
-<vertex x="0.3556" y="0"/>
-<vertex x="-0.4572" y="-0.6604"/>
-<vertex x="-0.4572" y="0.6604"/>
-</polygon>
+<wire x1="0.381" y1="0.508" x2="-0.254" y2="0" width="0.127" layer="21"/>
+<wire x1="-0.254" y1="0" x2="0.381" y2="-0.508" width="0.127" layer="21"/>
+<wire x1="0.381" y1="-0.508" x2="0.381" y2="0.508" width="0.127" layer="21"/>
+<wire x1="-0.254" y1="0.508" x2="-0.254" y2="-0.508" width="0.127" layer="21"/>
 </package>
 <package name="1X02">
 <description>&lt;h3&gt;Plated Through Hole&lt;/h3&gt;
@@ -783,6 +790,41 @@ part number 2062-2P from STA</description>
 <pad name="2" x="-1.27" y="-5.85" drill="0.8"/>
 <pad name="1" x="1.27" y="-5.85" drill="0.8"/>
 </package>
+<package name="XP-E2_(1414)">
+<smd name="A@1" x="-1.4" y="0" dx="0.5" dy="3.3" layer="1"/>
+<smd name="A@2" x="1.4" y="0" dx="0.5" dy="3.3" layer="1"/>
+<smd name="C" x="0" y="0" dx="1.3" dy="3.3" layer="1"/>
+<text x="0" y="2.286" size="0.6096" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
+<wire x1="-1.725" y1="1.725" x2="-1.725" y2="-1.725" width="0.127" layer="21"/>
+<wire x1="-1.725" y1="-1.725" x2="1.725" y2="-1.725" width="0.127" layer="21"/>
+<wire x1="1.725" y1="-1.725" x2="1.725" y2="1.725" width="0.127" layer="21"/>
+<wire x1="1.725" y1="1.725" x2="-1.725" y2="1.725" width="0.127" layer="21"/>
+</package>
+<package name="LED_0603">
+<smd name="CATHODE" x="-0.8" y="0" dx="0.8" dy="0.8" layer="1"/>
+<smd name="ANODE" x="0.8" y="0" dx="0.8" dy="0.8" layer="1"/>
+<wire x1="-0.127" y1="0" x2="0.254" y2="-0.254" width="0.127" layer="21"/>
+<wire x1="-0.127" y1="0" x2="0.254" y2="0.254" width="0.127" layer="21"/>
+<wire x1="0.254" y1="0.254" x2="0.254" y2="-0.254" width="0.127" layer="21"/>
+<wire x1="-0.127" y1="0.254" x2="-0.127" y2="-0.254" width="0.127" layer="21"/>
+<wire x1="-0.8" y1="0.4" x2="-0.8" y2="-0.4" width="0.127" layer="21"/>
+<wire x1="-0.8" y1="-0.4" x2="0.8" y2="-0.4" width="0.127" layer="21"/>
+<wire x1="0.8" y1="-0.4" x2="0.8" y2="0.4" width="0.127" layer="21"/>
+<wire x1="0.8" y1="0.4" x2="-0.8" y2="0.4" width="0.127" layer="21"/>
+<text x="0" y="0.889" size="0.6096" layer="21" font="vector" ratio="15" align="center">&gt;NAME</text>
+</package>
+<package name="LED_0402">
+<smd name="CATHODE" x="-0.55" y="0" dx="0.6" dy="0.6" layer="1" rot="R90"/>
+<smd name="ANODE" x="0.55" y="0" dx="0.6" dy="0.6" layer="1" rot="R90"/>
+<wire x1="-0.5" y1="-0.25" x2="0.5" y2="-0.25" width="0.127" layer="21"/>
+<wire x1="0.5" y1="-0.25" x2="0.5" y2="0.25" width="0.127" layer="21"/>
+<wire x1="0.5" y1="0.25" x2="-0.5" y2="0.25" width="0.127" layer="21"/>
+<wire x1="-0.5" y1="0.25" x2="-0.5" y2="-0.25" width="0.127" layer="21"/>
+<wire x1="0" y1="-0.127" x2="-0.127" y2="0" width="0.127" layer="21"/>
+<wire x1="-0.127" y1="0" x2="0" y2="0.127" width="0.127" layer="21"/>
+<wire x1="0" y1="0.127" x2="0" y2="-0.127" width="0.127" layer="21"/>
+<text x="0" y="0.762" size="0.6096" layer="25" font="vector" ratio="15" align="center">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="FRAME_A_L">
@@ -918,12 +960,59 @@ http://creativecommons.org/licenses/by-sa/4.0/</text>
 </device>
 </devices>
 </deviceset>
-<deviceset name="1206-LED">
+<deviceset name="LED" prefix="D">
+<description>&lt;p&gt;Genaric LED &lt;/p&gt;</description>
 <gates>
-<gate name="G$1" symbol="LED" x="0" y="-2.54"/>
+<gate name="G$1" symbol="LED" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="1206-LED">
+<device name="XP-E2" package="XP-E2_(1414)">
+<connects>
+<connect gate="G$1" pin="ANODE" pad="A@1"/>
+<connect gate="G$1" pin="CATHODE" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="0603" package="LED_0603">
+<connects>
+<connect gate="G$1" pin="ANODE" pad="ANODE"/>
+<connect gate="G$1" pin="CATHODE" pad="CATHODE"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DIGIKEY" value="" constant="no"/>
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="" constant="no"/>
+</technology>
+<technology name="BLUE">
+<attribute name="DIGIKEY" value="732-4966-1-ND" constant="no"/>
+<attribute name="MF" value="Wurth" constant="no"/>
+<attribute name="MPN" value="150060BS75000" constant="no"/>
+</technology>
+<technology name="GREEN">
+<attribute name="DIGIKEY" value="732-4971-1-ND" constant="no"/>
+<attribute name="MF" value="Wurth" constant="no"/>
+<attribute name="MPN" value="150060GS75000" constant="no"/>
+</technology>
+<technology name="RED">
+<attribute name="DIGIKEY" value="732-4978-1-ND" constant="no"/>
+<attribute name="MF" value="Wurth" constant="no"/>
+<attribute name="MPN" value="150060RS75000" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="0402" package="LED_0402">
+<connects>
+<connect gate="G$1" pin="ANODE" pad="ANODE"/>
+<connect gate="G$1" pin="CATHODE" pad="CATHODE"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="1206" package="LED_1206">
 <connects>
 <connect gate="G$1" pin="ANODE" pad="ANODE"/>
 <connect gate="G$1" pin="CATHODE" pad="CATHODE"/>
@@ -1226,7 +1315,7 @@ http://creativecommons.org/licenses/by-sa/4.0/</text>
 <part name="H1" library="bschulz" deviceset="MOUNTING_HOLE" device="2_NP"/>
 <part name="H2" library="bschulz" deviceset="MOUNTING_HOLE" device="2_NP"/>
 <part name="H3" library="bschulz" deviceset="MOUNTING_HOLE" device="2_NP"/>
-<part name="U$2" library="bschulz" deviceset="1206-LED" device=""/>
+<part name="D1" library="bschulz" deviceset="LED" device="1206"/>
 <part name="J1" library="bschulz" deviceset="CONN_02" device="1X02_NO_SILK"/>
 </parts>
 <sheets>
@@ -1252,7 +1341,7 @@ http://creativecommons.org/licenses/by-sa/4.0/</text>
 <attribute name="NAME" x="159.512" y="89.4842" size="1.778" layer="95"/>
 <attribute name="VALUE" x="159.512" y="86.4362" size="1.778" layer="96"/>
 </instance>
-<instance part="U$2" gate="G$1" x="147.32" y="114.3">
+<instance part="D1" gate="G$1" x="147.32" y="114.3">
 <attribute name="NAME" x="149.86" y="115.316" size="0.8128" layer="95" font="vector" ratio="15" rot="R90" align="center"/>
 </instance>
 <instance part="J1" gate="G$1" x="114.3" y="114.3">
@@ -1265,7 +1354,7 @@ http://creativecommons.org/licenses/by-sa/4.0/</text>
 <nets>
 <net name="ANODE" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="ANODE"/>
+<pinref part="D1" gate="G$1" pin="ANODE"/>
 <wire x1="147.32" y1="111.76" x2="147.32" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="147.32" y1="106.68" x2="132.08" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="J1" gate="G$1" pin="1"/>
@@ -1276,7 +1365,7 @@ http://creativecommons.org/licenses/by-sa/4.0/</text>
 </net>
 <net name="CATHODE" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="CATHODE"/>
+<pinref part="D1" gate="G$1" pin="CATHODE"/>
 <wire x1="147.32" y1="119.38" x2="147.32" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="147.32" y1="124.46" x2="132.08" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="J1" gate="G$1" pin="2"/>
