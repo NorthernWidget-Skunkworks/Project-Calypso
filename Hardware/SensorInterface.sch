@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.1">
+<eagle version="9.2.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13102,6 +13102,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND22" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="H1" library="bschulz" deviceset="MOUNTING_HOLE" device="2_NP"/>
 <part name="H2" library="bschulz" deviceset="MOUNTING_HOLE" device="2_NP"/>
+<part name="H3" library="bschulz" deviceset="MOUNTING_HOLE" device="2_NP"/>
 </parts>
 <sheets>
 <sheet>
@@ -14327,6 +14328,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="H2" gate="G$1" x="119.38" y="20.32" smashed="yes">
 <attribute name="NAME" x="121.412" y="20.9042" size="1.778" layer="95"/>
 <attribute name="VALUE" x="121.412" y="17.8562" size="1.778" layer="96"/>
+</instance>
+<instance part="H3" gate="G$1" x="127" y="20.32" smashed="yes">
+<attribute name="NAME" x="129.032" y="20.9042" size="1.778" layer="95"/>
+<attribute name="VALUE" x="129.032" y="17.8562" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
