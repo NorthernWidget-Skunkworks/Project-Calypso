@@ -1642,6 +1642,42 @@ Soure: &lt;a href="http://www.ti.com/lit/ds/symlink/ads7042.pdf"&gt; Data sheet 
 <wire x1="-0.8" y1="-0.69" x2="0.8" y2="-0.69" width="0.127" layer="21"/>
 <smd name="1" x="0" y="0" dx="1.6" dy="0.8" layer="1" roundness="20"/>
 </package>
+<package name="2_56">
+<description>&lt;p&gt;&lt;b&gt;2x56 Non-Plated Mounting Hole &lt;/b&gt;
+&lt;br&gt;Hole diameter based on max body diameter + 15% 
+&lt;br&gt;Keepout ring is for diameter of socket cap screw (minimum clearance required)
+&lt;br&gt;TPlace ring is for diameter of pan head screw (recomended clearance) &lt;/p&gt;</description>
+<hole x="0" y="0" drill="2.5"/>
+<circle x="0" y="0" radius="1.8" width="0.127" layer="39"/>
+<circle x="0" y="0" radius="2.125" width="0.127" layer="21"/>
+</package>
+<package name="4_40">
+<description>&lt;p&gt;&lt;b&gt;4x40 Non-Plated Mounting Hole &lt;/b&gt;
+&lt;br&gt;Hole diameter based on max body diameter + 15% 
+&lt;br&gt;Keepout ring is for diameter of socket cap screw (minimum clearance required)
+&lt;br&gt;TPlace ring is for diameter of pan head screw (recomended clearance) &lt;/p&gt;</description>
+<hole x="0" y="0" drill="3.175"/>
+<circle x="0" y="0" radius="2.33" width="0.127" layer="39"/>
+<circle x="0" y="0" radius="2.65" width="0.127" layer="21"/>
+</package>
+<package name="4_40_PLATED">
+<description>&lt;p&gt;&lt;b&gt;4x40 Non-Plated Mounting Hole &lt;/b&gt;
+&lt;br&gt;Hole diameter based on max body diameter + 15% 
+&lt;br&gt;Keepout ring is for diameter of socket cap screw (minimum clearance required)
+&lt;br&gt;TPlace ring is for diameter of pan head screw (recomended clearance) &lt;/p&gt;</description>
+<circle x="0" y="0" radius="2.33" width="0.127" layer="39"/>
+<circle x="0" y="0" radius="2.65" width="0.127" layer="21"/>
+<pad name="P$1" x="0" y="0" drill="3.175"/>
+</package>
+<package name="2_56_PLATED">
+<description>&lt;p&gt;&lt;b&gt;2x56 Non-Plated Mounting Hole &lt;/b&gt;
+&lt;br&gt;Hole diameter based on max body diameter + 15% 
+&lt;br&gt;Keepout ring is for diameter of socket cap screw (minimum clearance required)
+&lt;br&gt;TPlace ring is for diameter of pan head screw (recomended clearance) &lt;/p&gt;</description>
+<circle x="0" y="0" radius="1.8" width="0.127" layer="39"/>
+<circle x="0" y="0" radius="2.125" width="0.127" layer="21"/>
+<pad name="P$1" x="0" y="0" drill="2.5"/>
+</package>
 </packages>
 <symbols>
 <symbol name="FRAME_A_L">
@@ -2122,6 +2158,16 @@ Switches electronic signals</description>
 <wire x1="0" y1="7.62" x2="1.27" y2="6.35" width="0.15" layer="94"/>
 <wire x1="1.27" y1="6.35" x2="0" y2="5.08" width="0.15" layer="94"/>
 <text x="-2.54" y="3.81" size="1.27" layer="95" rot="R90" align="center">&gt;NAME</text>
+</symbol>
+<symbol name="MOUNT-HOLE">
+<wire x1="0" y1="1.27" x2="1.27" y2="0" width="1.524" layer="94" curve="-90" cap="flat"/>
+<wire x1="-1.27" y1="0" x2="0" y2="-1.27" width="1.524" layer="94" curve="90" cap="flat"/>
+<wire x1="-0.508" y1="0" x2="0.508" y2="0" width="0.0508" layer="94"/>
+<wire x1="0" y1="0.508" x2="0" y2="-0.508" width="0.0508" layer="94"/>
+<circle x="0" y="0" radius="2.032" width="0.0508" layer="94"/>
+<circle x="0" y="0" radius="0.508" width="0.0508" layer="94"/>
+<text x="2.032" y="0.5842" size="1.778" layer="95">&gt;NAME</text>
+<text x="2.032" y="-2.4638" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -3636,6 +3682,44 @@ NTC Thermistors:
 <attribute name="MF" value="TE Connectivity" constant="no"/>
 <attribute name="MPN" value="RCU-0C" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MOUNTING_HOLE" prefix="H" uservalue="yes">
+<description>&lt;p&gt;&lt;b&gt;Genaric Mechanical Mounting Hole &lt;/b&gt;
+&lt;br&gt;Hole diameter based on max body diameter + 15% 
+&lt;br&gt;Keepout ring is for diameter of socket cap screw (minimum &lt;b&gt;required clearance&lt;/b&gt;)
+&lt;br&gt;TPlace ring is for diameter of pan head screw (&lt;b&gt;recomended clearance&lt;/b&gt;) 
+&lt;li&gt;
+&lt;b&gt;Specifications:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href = "http://fastener-express.com/fastener-technical/SocketscapSS-Alloy.pdf"&gt;Socket Cap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href = "http://fastener-express.com/fastener-technical/Button-Socket-alloy.pdf"&gt;Button Head Socket Cap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href = "http://fastener-express.com/fastener-technical/pan-machine-Screws.pdf"&gt;Pan Head&lt;/a&gt;&lt;/li&gt;
+&lt;/p&gt;</description>
+<gates>
+<gate name="G$1" symbol="MOUNT-HOLE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="2_NP" package="2_56">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="4_NP" package="4_40">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="4_PL" package="4_40_PLATED">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="2_PL" package="2_56_PLATED">
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -13017,6 +13101,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND21" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C8" library="bschulz_passives" deviceset="C-EU" device="C0402" technology="0.1UF"/>
 <part name="GND22" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="H1" library="bschulz" deviceset="MOUNTING_HOLE" device="2_NP"/>
+<part name="H2" library="bschulz" deviceset="MOUNTING_HOLE" device="2_NP"/>
 </parts>
 <sheets>
 <sheet>
@@ -14235,6 +14321,14 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </instance>
 <instance part="GND22" gate="1" x="193.04" y="139.7" smashed="yes">
 <attribute name="VALUE" x="190.5" y="137.16" size="1.778" layer="96"/>
+</instance>
+<instance part="H1" gate="G$1" x="111.76" y="20.32" smashed="yes">
+<attribute name="NAME" x="113.792" y="20.9042" size="1.778" layer="95"/>
+<attribute name="VALUE" x="113.792" y="17.8562" size="1.778" layer="96"/>
+</instance>
+<instance part="H2" gate="G$1" x="119.38" y="20.32" smashed="yes">
+<attribute name="NAME" x="121.412" y="20.9042" size="1.778" layer="95"/>
+<attribute name="VALUE" x="121.412" y="17.8562" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
