@@ -53,13 +53,26 @@ void loop() {
   // SetVoltageRaw(0, LED1);
   // SetVoltageRaw(0, LED2);
   // delay(1000);
+    digitalWrite(LED1_CTRL, HIGH);
+//    SetVoltageRaw(128, LED1);
+//    delay(2000);
+//    SetVoltageRaw(256, LED1);
+//    delay(2000);
+//    SetVoltageRaw(512, LED1);
+//    delay(2000);
+//    SetVoltageRaw(1024, LED1);
+//    delay(2000);
+//    SetVoltageRaw(2048, LED1);
+//    delay(2000);
+    SetVoltageRaw(4095, LED1);
+    delay(2000);
+//  ClearCount();
+//  SetCount(10);
+//  digitalWrite(URES, LOW);
+//  delayMicroseconds(300);
+//  digitalWrite(URES, HIGH);
+//  delay(100); //DEBUG!
 
-  ClearCount();
-  SetCount(5);
-  digitalWrite(URES, LOW);
-  delayMicroseconds(300);
-  digitalWrite(URES, HIGH);
-  delay(100); //DEBUG!
   // while(1);
   // delay(10);
   // ClearCount();

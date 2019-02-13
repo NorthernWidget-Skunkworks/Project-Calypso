@@ -13154,10 +13154,27 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="218.44" y="187.96" size="1.778" layer="91">Software I2C</text>
 <text x="223.52" y="111.76" size="1.778" layer="91" ratio="15">Select High or Low Address for Slave address</text>
 <text x="116.84" y="76.2" size="3.81" layer="97">Communications: I2C</text>
-<text x="264.16" y="91.44" size="1.778" layer="91">PWM</text>
-<text x="264.16" y="86.36" size="1.778" layer="91">PWM</text>
-<text x="264.16" y="93.98" size="1.778" layer="91">MISO</text>
+<text x="271.78" y="91.44" size="1.778" layer="91">PWM</text>
+<text x="271.78" y="86.36" size="1.778" layer="91">PWM</text>
+<text x="271.78" y="93.98" size="1.778" layer="91">MISO</text>
 <text x="198.12" y="152.4" size="1.778" layer="91">MISO</text>
+<text x="185.42" y="99.06" size="1.778" layer="91">AREF</text>
+<text x="185.42" y="96.52" size="1.778" layer="91">D7</text>
+<text x="185.42" y="93.98" size="1.778" layer="91">D6</text>
+<text x="185.42" y="91.44" size="1.778" layer="91">D5</text>
+<text x="185.42" y="88.9" size="1.778" layer="91">D4</text>
+<text x="185.42" y="86.36" size="1.778" layer="91">D3</text>
+<text x="185.42" y="83.82" size="1.778" layer="91">A3</text>
+<text x="185.42" y="81.28" size="1.778" layer="91">D1</text>
+<text x="264.16" y="99.06" size="1.778" layer="91">D0</text>
+<text x="264.16" y="96.52" size="1.778" layer="91">D16</text>
+<text x="264.16" y="93.98" size="1.778" layer="91">D15</text>
+<text x="264.16" y="91.44" size="1.778" layer="91">D14</text>
+<text x="264.16" y="86.36" size="1.778" layer="91">D13</text>
+<text x="264.16" y="83.82" size="1.778" layer="91">D12</text>
+<text x="264.16" y="81.28" size="1.778" layer="91">D11</text>
+<text x="264.16" y="76.2" size="1.778" layer="91">D10</text>
+<text x="264.16" y="73.66" size="1.778" layer="91">D9</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0" smashed="yes">
