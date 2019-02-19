@@ -9,7 +9,7 @@
 void setup() {
   Serial.begin(9600); //DEBUG!
   Wire.begin();
-  tone(2, 2000);
+  tone(2, 100);
   WriteByte(COUNT, 25);
 }
 
@@ -29,7 +29,7 @@ void loop() {
 		if(Wire.read() == 0x01) Ready = true; //only proceed if new data is ready
 	}
 	// Serial.println(millis()); //DEBUG!
-	uint16_t Time = 0;
+	long Time = 0;
 	uint8_t Temp = 0;
 	Wire.beginTransmission(ADR);
 	Wire.write(0x0B);

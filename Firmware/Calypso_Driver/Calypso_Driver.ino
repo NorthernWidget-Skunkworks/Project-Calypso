@@ -110,6 +110,7 @@ void loop() {
 		SetCurrent((Reg[LED1A + 1] << 8) | Reg[LED1A], 1); //Set LED1 to current 1
 		SetCount(Reg[COUNT]); //Set the count of the system
 		digitalWrite(URES, HIGH); //Release counter, begin operation
+		NewData = false; //Clear data reg
 		// interrupts(); //re-enable interrupts to get count //FIX!
 		Reg[CTRL] = 0x00; //DEBUG! //Clear control reg
 	}
@@ -242,5 +243,5 @@ void stopEvent()
 void Trip(void)
 {
 	TripTime = micros() - TripTime; //Measure delta period
-	NewData = true; //Set new data flag 
+	if(digitalRead(11)) NewData = true; //Set new data flag only on rising edge
 }
