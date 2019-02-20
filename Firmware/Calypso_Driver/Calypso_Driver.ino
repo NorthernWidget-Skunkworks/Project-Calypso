@@ -1,3 +1,19 @@
+/******************************************************************************
+Calypso_Driver.cpp
+Firmware for Calypso
+Bobby Schulz @ Northern Widget LLC
+2/19/2019
+v0.0.0
+https://github.com/NorthernWidget-Skunkworks/Project-Calypso
+
+This firmware provides the low level control interface for the Calypso hardware 
+
+"What is a scientist after all? It is a curious man looking through a keyhole, the keyhole of nature, trying to know what's going on."
+-Jacques Cousteau
+
+Distributed as-is; no warranty is given.
+******************************************************************************/
+
 #include <Wire.h>
 #include <SlowSoftI2CMaster.h>
 #define LED1 0  //Define values of LEDs for side indication
@@ -54,6 +70,8 @@ volatile bool RepeatedStart = false; //Used to show if the start was repeated or
 volatile long TripTime = 0; //value used for measuring time of low pulse 
 volatile bool NewData = false; //Used to test for new pulse data 
 
+bool Busy = false; //Used to indicate when the device is taking a new sample
+
 void setup() {
 	Serial.begin(4800); //DEBUG!
 	Reg[CTRL] = 0x00; //Set Config to POR value
@@ -93,7 +111,8 @@ void setup() {
 }
 
 void loop() {
-	if((Reg[CTRL] & 0x80) == 0x80) {  //Test if Sample/rdy bit is set
+	if((Reg[CTRL] & 0x80) == 0x80 && Busy == false && ReadBit(Reg[CTRL], 6)) {  //Test if Sample/rdy bit is set and not already taking a sample, and device is enabled //FIX! Enable condition??
+		Busy = true; //Set busy flag and start sample
 		//Add sample procedure!
 		//Set LEDs
 		//Set Counter
@@ -106,28 +125,41 @@ void loop() {
 		// Serial.print(Reg[LED0A + 1], HEX); //DEBUG!
 		TripTime = 0; //Clear timing coutner 
 		digitalWrite(URES, LOW); //Hold system in reset
+		digitalWrite(LED1_CTRL, ReadBit(Reg[CTRL], 1)); //Set LED1 transistor from control reg
+		digitalWrite(LED2_CTRL, ReadBit(Reg[CTRL], 2)); //Set LED2 transistor from control reg
+		digitalWrite(F_IN_SW, ReadBit(Reg[CTRL], 0)); //Set input switch with value from control reg
 		SetCurrent((Reg[LED0A + 1] << 8) | Reg[LED0A], 0); //Set LED0 to current 0
 		SetCurrent((Reg[LED1A + 1] << 8) | Reg[LED1A], 1); //Set LED1 to current 1
+
 		SetCount(Reg[COUNT]); //Set the count of the system
 		digitalWrite(URES, HIGH); //Release counter, begin operation
 		NewData = false; //Clear data reg
 		// interrupts(); //re-enable interrupts to get count //FIX!
-		Reg[CTRL] = 0x00; //DEBUG! //Clear control reg
+		// Reg[CTRL] = Reg[CTRL] & 0x7F; //DEBUG! //Clear sample/rdy bit
 	}
 	// Serial.println(Reg[CTRL]); //DEBUG!
 	if(NewData) {
 		//Load new data into registers
 		//Set ready bit in control reg 
 		NewData = false;
+		Busy = false;
 		long Temp = 0;
 		Temp = TripTime/8; //Scale to rollovers
 		Reg[TIME] = Temp & 0xFF; //LSB of time val
 		Reg[TIME + 1] = (Temp >> 8) & 0xFF; //Middle byte of time val
 		Reg[TIME + 2] = (Temp >> 16) & 0xFF; //MSB of time val
-		Serial.println(Reg[TIME]); //DEBUG!
-		Reg[CTRL] = 0x01; //FIX!!!! 
+		// Serial.println(Reg[TIME]); //DEBUG!
+		Serial.println("DONE");
+		Reg[CTRL] = Reg[CTRL] & 0x7F; //Clear sample/rdy bit
 	}
-	delay(100); //FIX! Keep?
+
+	//Update general prams on every loop
+	digitalWrite(LED1_CTRL, ReadBit(Reg[CTRL], 1)); //Set LED1 transistor from control reg
+	digitalWrite(LED2_CTRL, ReadBit(Reg[CTRL], 2)); //Set LED2 transistor from control reg
+	digitalWrite(F_IN_SW, ReadBit(Reg[CTRL], 0)); //Set input switch with value from control reg
+	SetCurrent((Reg[LED0A + 1] << 8) | Reg[LED0A], 0); //Set LED0 to current 0
+	SetCurrent((Reg[LED1A + 1] << 8) | Reg[LED1A], 1); //Set LED1 to current 1
+	delay(1); //FIX! Keep?
 }
 
 //Current given in uA
@@ -244,4 +276,9 @@ void Trip(void)
 {
 	TripTime = micros() - TripTime; //Measure delta period
 	if(digitalRead(11)) NewData = true; //Set new data flag only on rising edge
+}
+
+bool ReadBit(uint8_t Val, uint8_t Pos)  //Returns the value of the specified position in the register
+{
+	return (Val >> Pos) & 0x01;
 }

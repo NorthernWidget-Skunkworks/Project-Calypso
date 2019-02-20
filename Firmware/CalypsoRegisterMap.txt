@@ -1,0 +1,13 @@
+Calypso Register Map
+
+Control Reg
+
+Bit 	Memonic Name	Function
+7		Sample/Ready	Set bit to begin sample (if enable is set), is automatically cleared when sample is complete 
+6		Enable 			Set bit to bring device into active mode and allow sampling 
+5		
+4
+3		Auto-range		To be implemented...
+2		LED2_EN			Set to enable current through LED2
+1		LED1_EN			Set to enable current through LED1
+0		IN_SEL			Set to measuring freq from F_IN_1, clear to read freq from F_IN_0 (Note: Must be set before next sample call)
