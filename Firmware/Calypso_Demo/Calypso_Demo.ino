@@ -86,7 +86,7 @@ void loop() {
       
       if(ReadString == "Help") {
       	Serial.println("Commands:");
-      	Serial.print(F("\tSet LED [1,2],[0,1]\n\tSet Current [1,2],[0 ~ 65000uA]\n\tSet Count [0 ~ 255]\n\tSet Input [0,1]\n\tGet Sample\n"));
+      	Serial.print(F("\tSet LED [1,2],[0,1]\n\tSet Current [1,2],[0 ~ 65000uA]\n\tSet Count [1 ~ 255]\n\tSet Input [0,1]\n\tGet Sample\n\tSweep [Imin],[Imax],[Step]\n"));
       	// Serial.print(F("\tSet HP\n\tSet Mode uC\n\tSet Pin uC\n\tRead Pin uC\n\tSet DAC\n\tRead ADC OB\n\tRead ADC Ext\n"));
       }
 
@@ -145,9 +145,37 @@ void loop() {
       }
 
       if(ReadString.indexOf("Get Sample") >= 0) { //"Set IO Pin xx y", xx is pin position (0 ~ 32), y is value (0 ~ 1)
-      	unsigned long Val = GetSample();
+      	float Val = GetSample();  //FIX float
       	Serial.print("\tPeriod = "); Serial.print(Val); Serial.println(" us");
       	Serial.print("\tFrequency = "); Serial.print(1.0/float(Val/1000000.0), 5); Serial.println(" Hz");
+      }
+
+      if(ReadString.indexOf("Sweep") >= 0) { //"Pin Mode uC xx y", xx is pin position (0 ~ 32), y is direction (0 ~ 1)
+      	// uint8_t LED = ReadString.substring(5).toInt();
+      	uint16_t IMin = ReadString.substring(5).toInt();  //FIX hardcode??
+      	uint16_t IMax = ReadString.substring(ReadString.indexOf(",") + 1).toInt();
+      	uint16_t Step = ReadString.substring(ReadString.indexOf(",", ReadString.indexOf(",") + 1) + 1).toInt();
+      	Serial.println(IMin); //DEBUG!
+      	Serial.println(IMax); //DEBUG!
+      	Serial.println(Step); //DEBUG!
+
+      	if(IMax > 20000 && !Safety) Serial.println("\tDangerous Current! Turn off saftey to proceed...");
+  		else if(IMin < IMax && IMin >= 0) {
+  			uint16_t Num = floor((IMax - IMin)/Step); //Find number of steps required for sweep
+  			float Val = 0;
+  			WriteWord(2, IMin); //Set both LEDs to IMin
+  			WriteWord(4, IMin); 
+  			Serial.println("\tI [uA], f [Hz]");
+  			for(int i = 0; i < Num; i++){
+  				WriteWord(2, IMin + i*Step);
+  				WriteWord(4, IMin + i*Step);
+  				Val = GetSample();
+  				Serial.print('\t'); Serial.print(IMin + i*Step); Serial.print(","); Serial.println(1.0/float(Val/1000000.0), 5);
+  			}
+  			WriteWord(2, IMin); //Set both LEDs to IMin to avoid overheat
+  			WriteWord(4, IMin); 
+  		}
+      	else Serial.println("\tInvaid Input!");
       }
 
       if(ReadString == "ItsAUnixSystem") {
@@ -176,7 +204,7 @@ int SetInput(bool Input)
 	WriteByte(CTRL, Temp); //Write moddified value back
 }
 
-unsigned long GetSample()  //Returns the average period in microseconds 
+float GetSample()  //Returns the average period in microseconds  //FIX float
 {
 	uint8_t Temp = ReadByte(CTRL);  //Read state of control register 
 	Temp = Temp | 0xC0; //Set sample and enable bit
@@ -189,12 +217,15 @@ unsigned long GetSample()  //Returns the average period in microseconds
 		Wire.endTransmission(true);
 
 		Wire.requestFrom(ADR, 1);
-		if((Wire.read() & 0x80) == 0x00) Ready = true; //only proceed if new data is ready, indicated by clearing on sample/rdy bit
+		uint8_t Val = Wire.read();
+		// Serial.println(Val);
+		if((Val & 0x80) == 0x00) Ready = true; //only proceed if new data is ready, indicated by clearing on sample/rdy bit
 	}
 	uint8_t CountVal = ReadByte(COUNT); //Read the multiple of the count
-
+	// Serial.println(CountVal);//DEBUG!
+	// Serial.println(GetTime());//DEBUG!
 	if(!Ready) return 0; //If exited because of Serial override 
-	return GetTime()/CountVal;  //Return the result of the sample divided by the number of counts (period)
+	return float(GetTime())/float(CountVal);  //Return the result of the sample divided by the number of counts (period)
 }
 
 unsigned long GetTime()  //FIX!
