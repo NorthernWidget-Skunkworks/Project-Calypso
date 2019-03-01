@@ -34,7 +34,7 @@ Distributed as-is; no warranty is given.
 #define ADR_DAC 0x60 //Address for DAC
 #define ADR_SEL_PIN 15 //Digital pin 15 is used to test which device address should be used
 
-#define VREF_VAL 0x000A //Set both referances to Vref (unbuffered)
+#define VREF_VAL 0x000F //Set both referances to Vref (buffered)
 #define SYS_STATUS_VAL
 #define SYS_STATUS_REG 0x0A //Register which contains system status and gain info
 #define VREF_REG 0x08 //Voltage referance set regitser 
@@ -51,7 +51,7 @@ Distributed as-is; no warranty is given.
 #define WRITE 0x00
 
 uint16_t Res = 6800; //Resistance in mOhms of load resistor(s)
-uint8_t Div = 4; //Division factor
+uint8_t Div = 19; //Division factor
 
 uint8_t Config = 0; //Global config value
 
@@ -167,7 +167,23 @@ int SetCurrent(long Current, bool Side) //Set current drive for led, use Side to
 {
 	//ADD VOLTAGE DIVIDER VALUE!!??
 	//RETURN BAD VALUE IF SET OUTSIDE OF RANGE!??
-	uint16_t Voltage = ((Current*Res)/500000)*Div; //Determine current set from load resistor 500 = 4096/2048000, bits/uV range
+	uint16_t Voltage = 0;
+	// if(ReadBit(Regs[0x06], 1) == 1) {
+	si.i2c_start((ADR_DAC << 1) | WRITE);
+	si.i2c_write((0x0A << 3) | 0b000); //Write to gain and status reg
+	// si.i2c_write(ReadBit(Reg[0x06], 1) << (Side + 0x08)); //Set gain bit with the appropriate value (LED control reg, bit 1)
+	// si.i2c_write(ReadBit(Reg[0x06], 1) << Side); //Set both to 2x gain //DEBUG!!!!
+	if(ReadBit(Reg[0x06], 1)) si.i2c_write(0x03); //Set gain = 2x
+	else si.i2c_write(0x00); //Set gain = 1x
+	si.i2c_write(0x00); //DEBUG!
+	si.i2c_stop();
+	// }
+	if(ReadBit(Reg[0x06], 0) == 1) { //If mode bit is set, use direct pass through
+		Voltage = Current; //DEBUG!
+	}
+	else {
+		Voltage = ((Current*Res)/500000)*Div; //Determine current set from load resistor 500 = 4096/2048000, bits/uV range
+	}
 	// Serial.print("VOLT"); //DEBUG!
 	// Serial.print(Voltage); //DEBUG!
 	si.i2c_start((ADR_DAC << 1) | WRITE); 
@@ -187,6 +203,7 @@ void SetCount(uint8_t Val)
 // 	PORTA = PORTA & 0xDF; //Clear PA5 
 // 	// Val = Val << 0x05; //Offset to allign with PORTA
 	for(int i = 7; i >= 0; i--) {
+		//FIX!!!!!!!!!!!!!!
 // 		//FAST MODE
 // 		PORTB = PORTB & 0xFE; //Clear bit, drive clock low  //DEBUG!
 // 		asm("nop \n"); //pause for one clock cycle

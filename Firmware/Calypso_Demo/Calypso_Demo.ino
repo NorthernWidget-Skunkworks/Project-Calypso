@@ -112,6 +112,42 @@ void loop() {
       	else Serial.println("\tInvaid Input!");
       }
 
+      if(ReadString.indexOf("Set Gain") >= 0) { //"Pin Mode uC xx y", xx is pin position (0 ~ 32), y is direction (0 ~ 1)
+      	bool Input = ReadString.substring(8).toInt();
+      	String PrintVal = ""; //Variable print value
+      	uint8_t Temp = ReadByte(0x06); //Read existing value in
+      	if(Input >= 0 && Input < 2) {//Check for valid range
+      		if(Input == 0) {
+      			WriteByte(0x06, Temp & 0xFD);  //Set gain to 1x (clear bit 1)
+      			PrintVal = "1x";
+      		}
+      		else {
+      			WriteByte(0x06, Temp | 0x02);  //Set gain to 2x (set bit 1)
+      			PrintVal = "2x";
+      		}
+      		Serial.print("\t"); Serial.print(PrintVal); Serial.println(" gain is selected");
+      	}
+      	else Serial.println("\tInvaid Input!");
+      }
+
+      if(ReadString.indexOf("Set Mode") >= 0) { //"Pin Mode uC xx y", xx is pin position (0 ~ 32), y is direction (0 ~ 1)
+      	bool Input = ReadString.substring(8).toInt();
+      	String PrintVal = ""; //Variable print value
+      	uint8_t Temp = ReadByte(0x06); //Read existing value in
+      	if(Input >= 0 && Input < 2) {//Check for valid range
+      		if(Input == 0) {
+      			WriteByte(0x06, Temp & 0xFE);  //Set mode to 0, [uA] (clear bit 0)
+      			PrintVal = "uA";
+      		}
+      		else {
+      			WriteByte(0x06, Temp | 0x01);  //Set mode to 1, [Bits] (set bit 1)
+      			PrintVal = "Bits";
+      		}
+      		Serial.print("\t"); Serial.print(PrintVal); Serial.println(" mode is selected");
+      	}
+      	else Serial.println("\tInvaid Input!");
+      }
+
 
       if(ReadString.indexOf("Set Current") >= 0) { //"Pin Mode uC xx y", xx is pin position (0 ~ 32), y is direction (0 ~ 1)  //ADD error checking??
       // Serial.println("BANG, Current");
