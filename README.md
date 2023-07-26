@@ -9,6 +9,7 @@ Our team developed an open-source sensor to measure turbidity, meaning cloudines
 
 *Two LEDs, red and infrared, send beams across the water to be measured, which lies within a transparent tube. These LED beams interact with the water, which reduces transmission and increases sidewas scatter. The detectors record both changes.*
 
+The sensor, called "Project Calypso", shines lights from two LEDs through the water. These LEDs lie at right angles from each other along a clear square plastic tube. Detectors record the LEDs' brightness. The sensor directly across from each LED records light transmission. The sensor at at 90 degrees from each LED records light scattering. Sediment in the water blocks the light and reduces transmission. Light can reflect off of sediment and scatter onto the sensor at 90 degrees. The scattering pattern depends on the wavelength of the light and sediment size. Therefore, we use both visible (red) and infrared light to learn about sediment size. Dissolved material reduces light transmission but does not scatter the light sideways. Because of this, Project Calypso can differentiate between sediment and dissolved compounds.
 
 ## Funding Support
 
