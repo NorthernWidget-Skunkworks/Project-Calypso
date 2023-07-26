@@ -56,3 +56,6 @@ eagle.epf
 *.net
 
 *.log
+
+# Temp files
+.*#
