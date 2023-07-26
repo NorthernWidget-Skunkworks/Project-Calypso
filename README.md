@@ -3,7 +3,7 @@ The hardware and software designs for a turbidity measurement system, based on t
 
 ## Project Summary
 
-Our team developed an open-source sensor to measure turbidity, meaning cloudiness or murkiness, of water. Turbidity increases when the water carries more sediment, and can also increase when dissolved compounds change the color and clarity of the water. Both suspended and dissolved material relate to water quality; in general, less of both is better for drinking water. This open-source sensor is freely available, meaning that anyone with the ability can download and build one based on the designs (https://doi.org/10.5281/zenodo.8177929).
+Our team developed an open-source sensor to measure water turbidity. Turbidity, or "murkiness", increases when the water carries more sediment. Dissolved compounds can also increase turbidity by reducing water clarity. In general, less suspended and dissolved material makes better drinking water. Anyone may download and build this sensor (Design: https://doi.org/10.5281/zenodo.8177929).
 
 <img src="https://github.com/NorthernWidget-Skunkworks/Project-Calypso/blob/master/Documentation/images/Calypso_LED_and_detector_schematic.png" alt="UMN WRC" width="400px">
 
