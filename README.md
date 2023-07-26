@@ -7,7 +7,7 @@ Our team developed an open-source sensor to measure turbidity, meaning cloudines
 
 <img src="https://github.com/NorthernWidget-Skunkworks/Project-Calypso/blob/master/Documentation/images/Calypso_LED_and_detector_schematic.png" alt="UMN WRC" width="400px">
 
-*Two LEDs, red and infrared, send beams across the sample. These interact with the water, which reduces transmission and increases sidewas scatter. The detectors record both changes.*
+*Two LEDs, red and infrared, send beams across the water to be measured, which lies within a transparent tube. These LED beams interact with the water, which reduces transmission and increases sidewas scatter. The detectors record both changes.*
 
 
 ## Funding Support
