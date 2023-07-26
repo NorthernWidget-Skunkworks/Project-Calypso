@@ -1,0 +1,66 @@
+cff-version: 1.2.0
+message: "Please cite this sensor design as below."
+authors:
+- family-names: Schulz
+  given-names: Bobby
+  orcid: "https://orcid.org/0000-0002-9272-4756"
+- family-names: Buechler
+  given-names: Corbin
+- family-names: Hayden
+  given-names: Amanda
+- family-names: Nightingale
+  given-names: Aaron
+- family-names: Rogers
+  given-names: Sean
+- family-names: Sundberg
+  given-names: Erik
+- family-names: Wolf
+  given-names: Jacob
+- family-names: Sandell
+  given-names: "Chad T."
+- family-names: Karwan
+  given-names: "Diana L."
+  orcid: "https://orcid.org/0000-0002-4529-0369"
+- family-names: "Wickert"
+  given-names: "Andrew D."
+  orcid: "https://orcid.org/0000-0002-9545-3365"
+title: "Project Calypso"
+version: 0.2.0
+doi: 10.5281/zenodo.8177929
+date-released: 2023-07-26
+url: "https://github.com/MNiMORPH/how-to-build-an-automated-ablation-stake"
+type: instrumentation
+preferred-citation:
+  type: instrumentation
+  authors:
+  - family-names: Schulz
+    given-names: Bobby
+    orcid: "https://orcid.org/0000-0002-9272-4756"
+  - family-names: Buechler
+    given-names: Corbin
+  - family-names: Hayden
+    given-names: Amanda
+  - family-names: Nightingale
+    given-names: Aaron
+  - family-names: Rogers
+    given-names: Sean
+  - family-names: Sundberg
+    given-names: Erik
+  - family-names: Wolf
+    given-names: Jacob
+  - family-names: Sandell
+    given-names: "Chad T."
+  - family-names: Karwan
+    given-names: "Diana L."
+    orcid: "https://orcid.org/0000-0002-4529-0369"
+  - family-names: "Wickert"
+    given-names: "Andrew D."
+    orcid: "https://orcid.org/0000-0002-9545-3365"
+  title: "Project Calypso"
+  version: 0.2.0
+  doi: 10.5281/zenodo.8177929
+  url: "https://github.com/MNiMORPH/how-to-build-an-automated-ablation-stake"
+  year: 2023
+  month: 7
+  day: 26
+  doi: 10.5281/zenodo.8138911
