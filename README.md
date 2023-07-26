@@ -15,6 +15,11 @@ The sensor, called "Project Calypso", shines lights from two LEDs through the wa
 
 *CAD drawing of the LED and detector mount. Sensors and mount surround a transparent plastic tube with a square cross section. Water, along with any suspended and/or dissolved matter that it carries, fills this tube.*
 
+<img src="https://github.com/NorthernWidget-Skunkworks/Project-Calypso/blob/master/Documentation/images/Calypso-LED-mount-real.jpg" alt="Image of the LED and detector mount, including installed circuit boards." width="400px">
+
+*3-D printed LED and detctor mount, along with one of the installed custom circuit boards to hold the LEDs and light detectors.*
+
+
 ## Funding Support
 
 Funding for this work came from the ***University of Minnesota Water Resources Center***, with support from the **USGS WRRI** program. This funding supported a grant to Wickert, Sandell, and Karwan, for their proposal entitled, *Open-Source Turbidity Sensor to Monitor Suspended and Dissolved Matter in Surface Water*.
