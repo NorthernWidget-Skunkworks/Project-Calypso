@@ -11,6 +11,10 @@ Our team developed an open-source sensor to measure water turbidity. Turbidity, 
 
 The sensor, called "Project Calypso", shines lights from two LEDs through the water. These LEDs lie at right angles from each other along a clear square plastic tube. Detectors record the LEDs' brightness. The sensor directly across from each LED records light transmission. The sensor at 90 degrees from each LED records light scattering. Sediment in the water blocks the light and reduces transmission. Light can reflect off of sediment and scatter onto the sensor at 90 degrees. The scattering pattern depends on the wavelength of the light and sediment size. Therefore, we use both visible (red) and infrared light to learn about sediment size. Dissolved material reduces light transmission but does not scatter the light sideways. Because of this, Project Calypso can differentiate between sediment and dissolved compounds.
 
+<img src="https://github.com/NorthernWidget-Skunkworks/Project-Calypso/blob/master/Documentation/images/Calypso-LED-mount-CAD.png" alt="CAD drawing of the LED and detector mount" width="400px">
+
+*CAD drawing of the LED and detector mount. Sensors and mount surround a transparent plastic tube with a square cross section. Water, along with any suspended and/or dissolved matter that it carries, fills this tube.*
+
 ## Funding Support
 
 Funding for this work came from the ***University of Minnesota Water Resources Center***, with support from the **USGS WRRI** program. This funding supported a grant to Wickert, Sandell, and Karwan, for their proposal entitled, *Open-Source Turbidity Sensor to Monitor Suspended and Dissolved Matter in Surface Water*.
