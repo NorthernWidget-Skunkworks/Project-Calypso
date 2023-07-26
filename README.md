@@ -19,6 +19,11 @@ The sensor, called "Project Calypso", shines lights from two LEDs through the wa
 
 *3-D printed LED and detctor mount, along with one of the installed custom circuit boards to hold the LEDs and light detectors.*
 
+We characterized the Calypso sensor using standards of known turbidity. Sensor response varied systematically with water cloudiness and light wavelength. The Calypso turbidity-sensor system is not only an open-source alternative. It also provides more information than standard turbidity sensors.
+
+<img src="https://github.com/NorthernWidget-Skunkworks/Project-Calypso/blob/master/Documentation/images/NTU_Formazin_dilutions.jpg" alt="Increasing concentrations of Formaizin (left to right), with water becoming systematically cloudier." width="800">
+
+*Increasing concentrations of Formaizin (left to right) cause the water to become systematically cloudier. We characterized the sensor using these standards.*
 
 ## Funding Support
 
