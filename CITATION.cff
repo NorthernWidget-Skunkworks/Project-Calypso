@@ -25,7 +25,7 @@ authors:
   given-names: "Andrew D."
   orcid: "https://orcid.org/0000-0002-9545-3365"
 title: "Project Calypso"
-version: 0.2.0
+version: 0.3.0
 doi: 10.5281/zenodo.8177929
 date-released: 2023-07-26
 url: "https://github.com/MNiMORPH/how-to-build-an-automated-ablation-stake"
@@ -57,7 +57,7 @@ preferred-citation:
     given-names: "Andrew D."
     orcid: "https://orcid.org/0000-0002-9545-3365"
   title: "Project Calypso"
-  version: 0.2.0
+  version: 0.3.0
   doi: 10.5281/zenodo.8177929
   url: "https://github.com/MNiMORPH/how-to-build-an-automated-ablation-stake"
   year: 2023
