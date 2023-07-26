@@ -1,0 +1,17 @@
+Writing | ################################################## | 100% 0.32s
+
+avrdude: 1084 bytes of flash written
+avrdude: verifying flash memory against /var/folders/9s/ngdjs9r96g367nnzl60v7q780000gn/T/arduino_build_75825/Blink.ino.hex:
+avrdude: load data flash data from input file /var/folders/9s/ngdjs9r96g367nnzl60v7q780000gn/T/arduino_build_75825/Blink.ino.hex:
+avrdude: input file /var/folders/9s/ngdjs9r96g367nnzl60v7q780000gn/T/arduino_build_75825/Blink.ino.hex contains 1084 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ##############################An error occurred while uploading the sketch
+#################### | 100% 0.37s
+
+avrdude: verifying ...
+avrdude: verification error, first mismatch at byte 0x0002
+         0x67 != 0x8a
+avrdude: verification error; content mismatch
+
+avrdude done.  Thank you.
